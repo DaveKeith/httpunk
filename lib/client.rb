@@ -96,11 +96,11 @@ class Client
   end
 
   def get_makes_us1
-    Client.get("/makeUs1")
+    Client.get("/makesUs1")
   end
 
   def get_makes_us2
-    Client.get("/makeUs2")
+    Client.get("/makesUs2")
   end
 
   def get_more_than1
