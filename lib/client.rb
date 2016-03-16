@@ -27,10 +27,12 @@ class Client
 
   def get_beat
     Client.get("/beat")
+    sleep 5
   end
 
   def get_better1
     Client.get("/better1")
+
   end
 
   def get_better2
@@ -177,20 +179,46 @@ class Client
     Client.get("/workIt2")
   end
 
-  def set_mix()
-    @mix.push(get_makes_us2)
-    @mix.push(get_harder1)
-    @mix.push(get_better1)
-    @mix.push(get_faster1)
-    @mix.push(get_stronger1)
-    @mix.push(get_work_is3)
-    @mix.push(get_over3)
+  # def set_mix()
+  #   @mix.push(get_makes_us2)
+  #   sleep 0.7
+  #   @mix.push(get_harder1)
+  #   sleep 0.7
+  #   @mix.push(get_better1)
+  #   sleep 0.7
+  #   @mix.push(get_faster1)
+  #   sleep 0.7
+  #   @mix.push(get_stronger1)
+  #   sleep 0.7
+  #   @mix.push(get_work_is3)
+  #   sleep 0.7
+  #   @mix.push(get_over3)
+  # end
+
+  def stop
+    Client.get("/stop")
   end
 
   def play_mix
-    set_mix
+    get_beat
+    sleep 0.7
+    get_makes_us2
+    sleep 0.7
+    get_harder1
+    sleep 0.7
+    get_better1
+    sleep 0.7
+    get_faster1
+    sleep 0.7
+    get_stronger1
+    sleep 0.7
+    get_work_is3
+    sleep 0.7
+    get_over3
+    sleep 0.7
+    stop
   end
 end
 
 client = Client.new
-binding.pry
+client.play_mix
